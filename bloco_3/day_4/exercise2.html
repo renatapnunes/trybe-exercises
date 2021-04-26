@@ -3,59 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="style2.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-        <h1>Soco a 80km/h: Conheça a Stomatopoda</h1>
+        <h1>Soco a 80km/h:<br>Conheça a <br> Stomatopoda</h1>
+        <img id="imagem_cabecalho" src="capa.jpg" alt="Stomatopoda">
     </header>
     <nav>
         <ul>
             <li><a href="home_page">Página Inicial</a></li>
             <li><a href="about">Sobre</a></li>
             <li><a href="contact">Contato</a></li>
-        </ul>     
+        </ul>
     </nav>
     <main>
-        <article>
-            <h2>Fatos sobre a Stomatopoda</h2>
-            <section>
-                <!--h3 - titulo da seção 
-                    
-                    Informações Gerais
-
-                        <table>
-                - nome científico: Odontodactylus scyllarus
-                - tabela: Reino, Filo, Subfilo, Classe, Subclasse e Ordem
-                
-                - imagem-->
-
-            </section>
-            <section>
-                <!--h3 - titulo da seção
-                    
-                    Fatos interessantes sobre o animal
-                - paragrafos com destaque de informacoes
-                - imagem
-            
-                    1 - força de soco
-                    2 - visão poderosa
-                    3 - casco resistente
-            -->
-            </section>
-            <section>
-                <!-- h3 - titulo da seção
-                
-                    Referencias bibliograficas
-                - lista de links consultados-->
-            </section>
-        </article>
-        <aside>
-            <!--h4 - titulo do video
-                Link para o vídeo -->
-        </aside>
+        <div class="display-inline-block">
+            <article class="esquerdo">
+                <h2>Fatos sobre a Stomatopoda</h2>
+                <section class="display-inline-block">
+                    <h3>Uma linda invertebrada</h3>
+                    <p>
+                        Stomatopoda é uma ordem de crustácios marinhos que conta com mais de 400 espécies. Esses invertebrados, cujo nome ciêntifico é <i>Odontodactylus scyllarus</i>, são conhecidos por diversos nomes populares como lagosta-boxeadora, camarão mantis, camarão-louva-a-deus-palhaço, lacraia-do-mar, tamarutaca, dentre outros. Parentes distantes do camarão e da lagosta, esse animal lindo e colorido, na verdade <strong>não é nada amigável</strong>, sendo considerado um dos animais mais poderosos do mundo. O motivo disto você saberá logo a baixo, mas antes contemple mais um pouco da sua beleza.
+                    </p>
+                    <img id="imagem_beleza_1" src="beleza_4.jpg" alt="Stomatopoda">
+                    <img id="imagem_beleza_2" class="esquerdo" src="beleza_animal.jpg" alt="Stomatopoda">
+                    <img id="imagem_beleza_3" class="direito" src="beleza_2.jpg" alt="Stomatopoda">
+                    <table class="esquerdo">
+                        <thead>
+                            <th colspan="2">Classificação Ciêntifica</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Reino</td>
+                                <td>Animalia</td>
+                            </tr>
+                            <tr>
+                                <td>Filo</td>
+                                <td>Arthropoda</td>
+                            </tr>
+                            <tr>
+                                <td>Subfilo</td>
+                                <td>Crustacea</td>
+                            </tr>
+                            <tr>
+                                <td>Classe</td>
+                                <td>Malacostraca</td>
+                            </tr>
+                            <tr>
+                                <td>Subclasse</td>
+                                <td>Hoplocarida</td>
+                            </tr>
+                            <tr>
+                                <td>Ordem</td>
+                                <td>Stomatopoda</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="direito">
+                        <p>
+                            Nativa do Indo-Pacífico, as Stomatopodas podem ser encontradas em quase todo o litoral brasileiro, embora sejam difíceis de serem observadas devido à seus hábitos furtivos. Seu tamanho varia, podendo a chegar a 40cm de comprimento em suas maiores espécies.
+                        </p>
+                    </div>
+                </section>
+                <section class="display-inline-block">
+                    <h3>Soco poderosíssimo</h3>
+                    <img id="imagem_soco" class="imagens-secoes esquerdo" src="soco_poderoso.jpg" alt="Stomatopoda">
+                    <div class="direito">
+                        <p>
+                            Para se alimentar e se defender, as Stomatopodas são capazes de desferir um dos <strong>mais rápidos e violentos socos do reino animal</strong>. Seu fantástico golpe se compara a uma arma de calibre .22, chegando a <strong>80km/h</strong>. A água ao seu redor chega a ferver com o movimento, no que chamamos de calefação. Para fins comparativos, se um humano lançasse uma bola de baseball com a mesma intensidade, ela chegaria à órbita terrestre. Com esse ataque ela consegue quebrar facilmente a carapaça de caranguejos, conchas calcificadas de gastrópodes e até mesmo vidros reforçados de aquários.
+                        </p>
+                    </div>
+                </section>
+                <section class="display-inline-block">
+                    <h3>Força e Resistência</h3>
+                    <img id="imagem_resistencia" class="imagens-secoes esquerdo" src="resistencia.jpg" alt="Stomatopoda">
+                    <div class="direito">
+                        <p>
+                            O soco dado por uma Stomatopoda possuí a <strong>força de impressionantes 60kg/cm²</strong>. Tamanha intensidade, produz uma onda de choque capaz de matar a presa, mesmo que ela erre o golpe. Mais surpreendente do que seu ataque é a <strong>resistência do apêndice</strong> que o desfere, que virou objeto de estudo de pesquisadores da área de Ciência dos Materiais, que visam compreender e aplicar seu mecanismo no desenvolvimento de estruturas artificiais, que podem a vir beneficiar, por exemplo, superfícies de automóveis e aeronaves.
+                        </p>
+                    </div>
+                </section>
+                <section class="display-inline-block">
+                    <h3>Super Visão</h3>
+                    <img id="imagem_visao" class="imagens-secoes esquerdo" src="super_visao.jpg" alt="Stomatopoda">
+                    <div class="direito">
+                        <p>
+                            Como se não bastasse a poderosa pancada, uma de suas espécies, a <i>Gonodactylus smithii</i>, possui <strong>o mais complexo sistema de visão de cores</strong> já estudado. Ele proporciona às Stomatopodas uma super visão capaz de ver cores, do <strong>ultravioleta ao infravermelho</strong>, invisíveis a vários outros animais. Para se ter uma ideia, elas enxergam doze cores primárias, enquanto que nós humanos, enxergamos apenas três.
+                        </p>
+                    </div>
+                </section>
+                <br><br>
+                <p>
+                    <strong>Aposto que após essas informações, você não esquecerá tão fácil desse animalzinho marinho, não é mesmo?</strong>
+                </p>
+            </article>
+            <aside class="direito">
+                <div id="videos">
+                    <h3>Vídeos</h3>
+                    <a href="https://www.youtube.com/watch?v=E0Li1k5hGBE&ab_channel=NatGeoWILD" target="_blank">Packs a Punch</a>
+                    <iframe width="200" height="110" src="https://www.youtube.com/embed/watch?v=E0Li1k5hGBE&ab_channel=NatGeoWILD" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div id="referencias">
+                    <h3>Veja Mais</h3>
+                    <ul>
+                        <li><a href="https://www.nationalgeographic.com/science/article/natures-most-amazing-eyes-just-got-a-bit-weirder">National Geographic</a></li>
+                        <li><a href="https://theoatmeal.com/comics/mantis_shrimp">The Oatmeal</a></li>
+                        <li><a href="https://www.aquaa3.com.br/curiosidades-camarao-mantis/">Aquaa3</a></li>
+                        <li><a href="https://www.mdig.com.br/index.php?itemid=44508">Mdig</a></li>
+                        <li><a href="https://aminoapps.com/c/mundo-animal-pt-br/page/blog/ficha/1BBl_Ldu6uDpZLwRE7l4GRj0ak2pNxEml">Amino</a></li>
+                        <li><a href="https://pt.wikipedia.org/wiki/Stomatopoda">Wikipedia</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
     </main>
     <footer>
-        <!-- "Conteúdo compilado por <insere seu nome>, <ano atual>". -->
+        <p>Conteúdo compilado por Renata Nunes, 2021<br>Atividade para o curso de Desenvolvimetno Web da Trybe</p>
     </footer>
   </body>
 </html>
