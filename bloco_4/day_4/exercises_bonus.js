@@ -37,40 +37,40 @@ let romanos = {
     M: 1000
 };
 
+let entrada = "LXXIII";
+
 function converteRomanosEmDecimais(algarismo, romanos) {
     let arrayDecimal = [];
-    let aux;
+    let resultado = 0;
+    let decimal = 0;
 
-    for(let key in algarismo) {
-        aux = key;
-        switch(key){
-            case "I":
-                arrayDecimal.push(romanos[aux]);
-                break;
-            case "V":
-                arrayDecimal.push(romanos[aux]);
-                break;
-            case "X":
-                arrayDecimal.push(romanos[aux]);
-                break;
-            case "L":
-                arrayDecimal.push(romanos[aux]);
-                break;
-            case "C":
-                arrayDecimal.push(romanos[aux]);
-                break;
-            case "D":
-                arrayDecimal.push(romanos[aux]);
-                break;
-            case "M":
-                arrayDecimal.push(romanos[aux]);
-                break;
-            default:
-                break;
+     //Converte os algarismos romanos em um arrey de decimais
+    for(let algKey in algarismo){
+        for(let romKey in romanos){
+            if(algarismo[algKey] == romKey){
+                arrayDecimal.push(romanos[romKey]);
+            };
         };
     };
-    return arrayDecimal;
+    
+    //Compara posições do array decimal para saber se deve somar ou subtrair
+    for(let i = 0; i < arrayDecimal.length -1; i += 1){
+        if(arrayDecimal[i] >= arrayDecimal[i+1]){
+            resultado = arrayDecimal[i] + arrayDecimal[i+1];
+            arrayDecimal[i+1] = resultado;
+        }
+        else{
+            resultado = arrayDecimal[i+1] - arrayDecimal[i];
+            arrayDecimal[i+1] = resultado;
+        };
+    };
+
+    //Pega o valor da ultima posição do array de decimais, pois nela está o valor final
+    decimal = arrayDecimal[arrayDecimal.length - 1]
+
+    return decimal;
+
 };
 
-console.log(converteRomanosEmDecimais("IIVX", romanos));
+console.log(entrada + " em romano é: " + converteRomanosEmDecimais(entrada, romanos) + " em decimal." );
 
