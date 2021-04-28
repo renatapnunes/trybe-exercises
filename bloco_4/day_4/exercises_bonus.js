@@ -74,3 +74,23 @@ function converteRomanosEmDecimais(algarismo, romanos) {
 
 console.log(entrada + " em romano é: " + converteRomanosEmDecimais(entrada, romanos) + " em decimal." );
 
+// ------------------------------------------------------------------------------------------------------------------
+// 2 - Desafio do CodeWars
+
+function add(num1, num2) {
+    return num1 + num2;
+};
+
+let numLiteral = "";
+let numLiteral2 = "";
+
+let num1 = 10;
+
+numLiteral1 += num1;
+numLiteral2 += num2;
+
+tamanho1 = numLiteral1.length;
+tamanho2 = numLiteral2.length;
+
+
+console.log(numLiteral);

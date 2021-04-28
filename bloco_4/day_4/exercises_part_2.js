@@ -117,7 +117,7 @@ function inteiroQueMaisRepete(inteiros){
     return numQueMaisRepete;
 };
 
-console.log(inteiroQueMaisRepete([2, 3, 2, 5, 8, 2, 3]));
+console.log("O inteiro que mais se repete é o: " +inteiroQueMaisRepete([2, 3, 2, 5, 8, 2, 3]));
 
 // ---------------------------------------------------------------------------------------------------------------------
 
