@@ -95,34 +95,29 @@ console.log(maiorNome(['José', 'Lucas', 'Nádia', 'Fernanda', 'Cairo', 'Joana']
 
 // 5 - Crie uma função que receba um array de inteiros e retorne o inteiro que mais se repete:
 
-function inteiroMaisRepete(inteiros){
-    let inteiroMaisRepetiu = 0;
-    let vezesMaisRepetiu = 0;
+function inteiroQueMaisRepete(inteiros){
+    let maiorRepeticao = 0;
+    let numQueMaisRepete = 0;
 
     for(let i = 0; i < inteiros.length; i += 1){
-        let vezesInteiroRepetiu = 0;
-
-        for(let j = 0; j < inteiros.length; j += 1){
-            if(inteiros[i] === inteiros[j]){
-                vezesInteiroRepetiu += 1;
+        let vezesQueRepete = 1;
+    
+        for(let j = 0; j < inteiros.length -1; j += 1){
+            if(inteiros[i] === inteiros[j+1]) {
+                vezesQueRepete += 1;
             };
         };
-
-        console.log("inteiro: " +inteiros[i]);
-        console.log("Vezes que repetiu: " +vezesInteiroRepetiu);
-        console.log("------------------");
-
-        if(vezesInteiroRepetiu > vezesMaisRepetiu){
-            vezesMaisRepitiu = vezesInteiroRepetiu;
-            inteiroMaisRepetiu = inteiros[i];
+    
+        if(vezesQueRepete > maiorRepeticao){
+            maiorRepeticao = vezesQueRepete;
+            numQueMaisRepete = inteiros[i];
         };
     };
-
-    return inteiroMaisRepetiu;
+    
+    return numQueMaisRepete;
 };
 
-console.log("Inteiro que mais repetiu: " +inteiroMaisRepete([2, 3, 2, 5, 8, 2, 3]));
-console.log(" --- ");
+console.log(inteiroQueMaisRepete([2, 3, 2, 5, 8, 2, 3]));
 
 // ---------------------------------------------------------------------------------------------------------------------
 
