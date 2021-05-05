@@ -141,6 +141,55 @@ function createDaysOfTheWeek() {
 
     addTask('estudar');
 
+  /* Exercicio 8
+
+  Implemente uma função que adiciona uma legenda com cor para a tarefa criada no exercício anterior. Esta função deverá receber como parâmetro uma string ("cor") e criar dinamicamente um elemento de tag <div> com a classe task .
+    - O parâmetro cor deverá ser utilizado como cor de fundo da <div> criada.
+    - O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks" . */
+
+    function addSubtitle(color) {
+        let divElement = document.createElement('div');
+        divElement.className = 'task';
+        divElement.style.backgroundColor = color;
+        document.querySelector('.my-tasks').appendChild(divElement);
+    }
+
+    addSubtitle('rgb(127,255,0)');
+
+  /* Exercicio 9
+
+  Implemente uma função que adiciona um evento que ao clicar no elemento com a tag <div> referente a cor da sua tarefa, atribua a este elemento a classe task selected , ou seja, quando sua tarefa possuir a classe task selected ela estará selecionada.
+    - Ao clicar novamente no elemento a sua classe deverá voltar a ser somente task , ou seja, esta tarefa está deixando de ser uma tarefa selecionada. */
+
+    let arrayTaskSubtitle = document.querySelectorAll('.task');
+    let selectedTask = false;
+    
+    for (let i = 0; i < arrayTaskSubtitle.length; i += 1) {
+        arrayTaskSubtitle[i].addEventListener('click', function (eventOrigin) {
+            selectedTask = !selectedTask;
+
+            if (selectedTask) {
+                eventOrigin.target.className = 'task selected';
+            } else {
+                eventOrigin.target.className = 'task';
+            }
+        });
+    }
+
+      /* Exercicio 10
+
+  Implemente uma função que adiciona um evento que ao clicar em um dia do mês no calendário, atribua a este dia a cor da legenda da sua tarefa selecionada.
+    - Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119) .*/
+    
+    for (let i = 0; i < arrayDays.length; i += 1) {
+        arrayDays[i].addEventListener('click', function (eventOrigin) {
+            let selectedTaskColor = document.querySelector('.selected');
+
+            eventOrigin.target.style.backgroundColor = selectedTaskColor.style.backgroundColor;
+        });
+    }
+
+
 
 
 
