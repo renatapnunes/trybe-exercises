@@ -68,8 +68,22 @@
         
 
         // 1- Remova todos os elementos filhos de paiDoPai exceto pai , elementoOndeVoceEsta e primeiroFilhoDoFilho .
-        
-
+        let arrayId = [
+            "paiDoPai",
+            "pai",
+            "elementoOndeVoceEsta",
+            "primeiroFilhoDoFilho"
+        ];
+        let arrayDiv = document.querySelectorAll("div");
+        for (let i = 0; i < arrayDiv.length; i += 1) {
+            for (let j = 0; j < arrayId.length; j += 1) {
+                if (arrayDiv[i].id.includes(arrayId[j])) {
+                    break;
+                } else {
+                    concole.log("vazio");
+                }
+            }
+        }       
         </script>
 </body>
 </html>
