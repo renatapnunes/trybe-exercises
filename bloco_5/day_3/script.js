@@ -120,7 +120,7 @@ function createDaysOfTheWeek() {
     
     for (let i = 0; i < arrayDays.length; i += 1) {
         arrayDays[i].addEventListener('mouseover', function (eventOrigin) {
-            eventOrigin.target.style.fontSize = '25px';
+            eventOrigin.target.style.fontSize = '28px';
         });
         
         arrayDays[i].addEventListener('mouseleave', function (eventOrigin) {
@@ -176,21 +176,56 @@ function createDaysOfTheWeek() {
         });
     }
 
-      /* Exercicio 10
+  /* Exercicio 10
 
   Implemente uma função que adiciona um evento que ao clicar em um dia do mês no calendário, atribua a este dia a cor da legenda da sua tarefa selecionada.
     - Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119) .*/
     
+    let selectedDay = false;
+
     for (let i = 0; i < arrayDays.length; i += 1) {
         arrayDays[i].addEventListener('click', function (eventOrigin) {
             let selectedTaskColor = document.querySelector('.selected');
+            selectedDay = !selectedDay;
 
-            eventOrigin.target.style.backgroundColor = selectedTaskColor.style.backgroundColor;
+            if (selectedDay) {
+                eventOrigin.target.style.backgroundColor = selectedTaskColor.style.backgroundColor;
+            } else {
+                eventOrigin.target.style.backgroundColor = 'rgb(238,238,238)';
+            }
         });
     }
 
+  /* BONUS
 
+  Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto "COMPROMISSOS", adiciona o item à lista "MEUS COMPROMISSOS" ao clicar no botão "ADICIONAR".
+    - Se nenhum caractere for inserido no campo input , a função deve retornar um alert com uma mensagem de erro ao clicar em "ADICIONAR".
+    - Ao pressionar a tecla "enter" o evento também deverá ser disparado.
+    - Dica -> Propriedade: keyCode */
 
+    id="task-input"
+    id="btn-add"
 
+    let buttonAdd = document.querySelector('#btn-add');
+    let inputBox = document.querySelector('#task-input');
 
-    
+    buttonAdd.addEventListener('click', add);
+
+    inputBox.addEventListener('keyup', function (eventOrigin) {
+        if (eventOrigin.keyCode === 13) { // 13 eh o codigo da tecla Enter
+            add();
+        }
+    });
+
+    function add() {
+        let itemList = document.createElement('li');
+        let stringInput = document.querySelector('#task-input').value;
+
+        if (stringInput !== '') {
+            itemList.innerHTML = stringInput;
+            document.querySelector('.task-list').appendChild(itemList);
+            inputBox.value = ''; // limpa a caixa de input
+        } else {
+            alert('Insira um compromisso válido!');
+        }
+    }
