@@ -48,20 +48,100 @@ function createDaysOfTheWeek() {
     - Adicione a este botão a ID "btn-holiday" .
     - Adicione este botão como filho/filha da tag <div> com classe "buttons-container" .*/
 
-  function createButton(string) {
-    let button = document.createElement("BUTTON");
+  function createButton(string, nameId) {
+    let button = document.createElement('button');
     button.innerHTML = string;
-    button.id = 'btn-holiday';
-    document.querySelector(".buttons-container").appendChild(button);
-    console.log(button.value);
+    button.id = nameId;
+    document.querySelector('.buttons-container').appendChild(button);
   }
 
-  createButton('Feriados');
+  createButton('Feriados', 'btn-holiday');
 
-  /* Exercicio3
+  /* Exercicio 3
   
   Implemente uma função que adicione ao botão "Feriados" um evento de "click" que muda a cor de fundo dos dias que possuem a classe "holiday" .
     - É interessante que este botão possua também a lógica inversa. Ao ser clicado novamente ele retorna à configuração inicial com a cor "rgb(238,238,238)" .
   */
   
+    let buttonHoliday = document.querySelector('#btn-holiday')
+    let selectedHolidays = false;
+    buttonHoliday.addEventListener('click', function () {
+        let arrayHolidays = document.querySelectorAll('.holiday');
+        selectedHolidays = !selectedHolidays;
 
+        if (selectedHolidays) {
+            for (let i = 0; i < arrayHolidays.length; i += 1) {
+                arrayHolidays[i].style.backgroundColor = 'rgb(218, 247, 166)';
+            }
+        } else {
+            for (let i = 0; i < arrayHolidays.length; i += 1) {
+                arrayHolidays[i].style.backgroundColor = 'rgb(238,238,238)';
+            }
+        }
+    });
+
+  /* Exercicio 4
+  
+  Implemente uma função que receba como parâmetro a string "Sexta-feira" e crie dinamicamente um botão com o nome "Sexta-feira".
+    - Adicione a este botão o ID "btn-friday" .
+    - Adicione este botão como filho/filha da tag <div> com classe "buttons-container". */
+
+    createButton('Sexta-feira', 'btn-friday');
+
+  /* Exercicio 5
+  
+  Implemente uma função que adicione ao botão "Sexta-feira" um evento de "click" que modifica o texto exibido nos dias que são Sexta-feira.
+    - É interessante que este botão possua também a lógica inversa. Ao ser clicado novamente ele retorna à configuração inicial exibindo os dias. */
+
+    let buttonFriday = document.querySelector('#btn-friday')
+    let selectedFriday = false;
+    buttonFriday.addEventListener('click', function () {
+        let arrayFriday = document.querySelectorAll('.friday');
+        let fridays = [4, 11, 18, 25];
+        selectedFriday = !selectedFriday;
+
+        if (selectedFriday) {
+            for (let i = 0; i < arrayFriday.length; i += 1) {
+                arrayFriday[i].innerHTML = 'SEXTOU';
+            }
+        } else {
+            for (let i = 0; i < arrayFriday.length; i += 1) {
+                arrayFriday[i].innerHTML = fridays[i];
+            }
+        }
+    });
+
+  /* Exercicio 6
+  
+  Implemente duas funções que criem um efeito de "zoom". Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
+    - Dica - Propriedade: event.target. */
+    
+    let arrayDays = document.querySelectorAll('.day');
+    
+    for (let i = 0; i < arrayDays.length; i += 1) {
+        arrayDays[i].addEventListener('mouseover', function (eventOrigin) {
+            eventOrigin.target.style.fontSize = '25px';
+        });
+        
+        arrayDays[i].addEventListener('mouseleave', function (eventOrigin) {
+            eventOrigin.target.style.fontSize = '20px';
+        });
+    }
+
+  /* Exercicio 7
+
+  Implemente uma função que adiciona uma tarefa personalizada ao calendário. A função deve receber como parâmetro a string com o nome da tarefa (ex: "cozinhar") e criar dinamicamente um elemento com a tag <span> contendo a tarefa.
+    - O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks" . */
+
+    function addTask(task) {
+        let spanElement = document.createElement('span');
+        spanElement.innerHTML = task;
+        document.querySelector('.my-tasks').appendChild(spanElement);
+    }
+
+    addTask('estudar');
+
+
+
+
+    
