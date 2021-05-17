@@ -5,7 +5,7 @@ body {
     flex-flow: column wrap;
     font-family: Raleway, sans-serif;
     justify-content: center;
-    overflow: hidden;
+    overflow: scroll;
     width: 100vw;
   }
   
@@ -67,8 +67,27 @@ body {
   }
 
   @media screen and (min-width: 500px) {
-      #teste {
-        width: auto !important;
-        color: red !important;
+      .card:nth-of-type(1) {
+        display: flex;
       }
   }
+
+  @media screen and (min-width: 600px) and (max-width: 1000px) {
+    .card:nth-of-type(2) {
+      display: flex;
+    }
+  }
+
+  @media not screen and (max-width: 650px) and (min-width: 950px) {
+    .card:nth-of-type(3) {
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .trick {
+      display: flex;
+    }
+  }
+
+
