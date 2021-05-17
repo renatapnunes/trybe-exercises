@@ -43,7 +43,8 @@ li {
 nav ul {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-end;
+    justify-content: center;
+    padding: 0px;
     margin: 0px 15px;
 }
 
@@ -89,6 +90,7 @@ footer p {
     font-size: 18px;
 }
 
+/* Tamanho de tela media: Maior que 540px e menor que 770px*/
 @media screen and (min-width: 541px) and (max-width: 769px) {
     header {
         align-content: center;
@@ -102,12 +104,6 @@ footer p {
     li {
         margin: 15px;
         font-size: 28px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-end;
     }
 
     p {
@@ -145,5 +141,72 @@ footer p {
     
     footer p {
         font-size: 28px;
+    }
+}
+
+/* Tamanho de tela grande: Maior que 769px */
+@media screen and (min-width: 770px) {
+    header {
+        align-content: center;
+    }
+
+    header p {
+        margin: 20px;
+        font-size: 52px;
+    }
+
+    li {
+        margin: 15px;
+        font-size: 22px;
+    }
+
+    .div-container{
+        display: flex;
+        flex-flow: row nowrap;
+        flex-grow: 1;
+    }
+
+    .div-container .main-content {
+        order: 1;
+        flex-basis: 70%;
+        flex-grow: 1;
+    }
+    .div-container .aside-container {
+        order: 2;
+        flex-basis: 30%;
+        flex-grow: 1;
+    }
+
+    p {
+        font-size: 28px;
+    }
+
+    h2 {
+        margin: 60px auto;
+        font-size: 30px;
+    }
+
+    .aside-one ul {
+        margin-left: 10px;
+    }
+
+    hr{
+        margin: 60px auto;
+    }
+
+    .main-content {
+        margin: 10px 80px;
+    }
+
+    footer {
+        margin: 10px 80px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+    
+    footer p {
+        font-size: 22px;
     }
 }
