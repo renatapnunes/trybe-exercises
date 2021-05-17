@@ -12,6 +12,11 @@ body {
     background-color: rgb(252, 248, 208);
 }
 
+.container {
+    display: flex;
+    flex-flow: column wrap;
+}
+
 header {
     background-color: rgb(13, 181, 223);
     border-radius: 10px;
@@ -27,7 +32,6 @@ header p {
     font-size: 32px;
     font-weight: bold;
     text-align: center;
-    /* color: rgb(255, 230, 0); */
 }
 
 li {
@@ -47,11 +51,11 @@ p {
     font-size: 22px;
 }
 
-.aside-one h2 {
+h2 {
     text-align: center;
 }
 
-.aside-one ul {
+.aside-one ul, .aside-two ul{
     padding-right: 40px;
 }
 
@@ -59,16 +63,11 @@ p {
     text-align: center;
 }
 
-.aside-two ul {
-    padding-right: 40px;
-}
-
 hr {
     width: 300px;
     height: 1px;
     margin: 20px auto;
     background-color: rgb(0, 0, 0);
-
 }
 
 h1 {
@@ -88,4 +87,63 @@ footer {
 
 footer p {
     font-size: 18px;
+}
+
+@media screen and (min-width: 541px) and (max-width: 769px) {
+    header {
+        align-content: center;
+    }
+
+    header p {
+        margin: 20px;
+        font-size: 42px;
+    }
+
+    li {
+        margin: 15px;
+        font-size: 28px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-end;
+    }
+
+    p {
+        font-size: 32px;
+    }
+
+    h2 {
+        margin: 40px auto;
+        font-size: 30px;
+    }
+
+    .aside-one ul {
+        margin-left: 60px;
+    }
+
+    hr {
+        margin: 60px auto;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .main-content {
+        margin: 10px 80px;
+    }
+
+    footer {
+        margin: 10px 80px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+    
+    footer p {
+        font-size: 28px;
+    }
 }
