@@ -100,19 +100,14 @@
 
   /* Configuração para tela pequena (240x320px) */
   @media screen and (max-width: 240px) {
-    #body {
-        padding: 0px;
-    }
-
     #container {
         display: flex;
-        flex-flow: column wrap;
-        margin: 0px;
+        flex-flow: column nowrap;
     }
 
     #header {
         padding: 10px;
-        /* flex-grow: 1; */
+        flex-grow: 1;
     }
 
     h1 {
@@ -120,10 +115,8 @@
     }
 
     #navigation {
-        width: 90%;
-        align-self: ;
-        margin: 0px;
-
+        width: 95%;
+        margin: 5px;
     }
     #navigation ul{
         display: flex;
@@ -137,15 +130,92 @@
     }
 
     #content {
-        width: 100%;
+      width: 100%;
+      padding: 5px 5px;
+      margin: 0px;
+      display: flex;
+      flex-flow: column wrap;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+
+    img {
+        width: 95%;
+    }
+
+    p {
+      padding: 5px 10px;
+      font-size: 14px;
+    }
+
+    #footer {
+      font-size: 12px;
+    }
+
+    #aside {
+        display: none;
+    }
+  }
+
+  /* Configuração para tela de smartphone (360x640px) */
+  @media screen and (min-width: 241px) and (max-width: 360px) {
+    #container {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    #header {
+        padding: 20px;
+        flex-grow: 1;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    #navigation {
+        width: 95%;
+        margin: 5px;
+    }
+    #navigation ul{
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    #navigation li a {
+        border: 0px;
+        padding: 5px 10px;
+        font-size: 18px;
+    }
+
+    #content {
+      width: 100%;
+      padding: 5px 5px;
+      margin-top: 10px;
+      display: flex;
+      flex-flow: column wrap;
+    }
+
+    h2 {
+      font-size: 26px;
     }
 
     img {
         width: 90%;
     }
 
+    p {
+      padding-right: 30px;
+      font-size: 18px;
+    }
+
+    #footer {
+      font-size: 16px;
+    }
+
     #aside {
         display: none;
     }
-
   }
