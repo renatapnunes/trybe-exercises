@@ -42,3 +42,46 @@ const longestWord = phrase => {
     return `Maior palavra: ${array[0]}`;
 }
 console.log(longestWord('Antônio foi no banheiro e não sabemos o que aconteceu')); // retorna 'aconteceu'
+
+
+// Exercicio 3 - Resolvido no arquivo exercise3.html
+
+
+/* Exercicio 4
+Crie um código JavaScript com a seguinte especificação:
+    - Não se esqueça de usar template literals
+
+    - Função 1 : Escreva uma função que vai receber uma string como parâmetro. Sua função deverá procurar pela letra x em uma string qualquer que você determinar e substituir pela string que você passou como parâmetro. Sua função deve retornar essa nova string.
+        Exemplo:
+            String determinada: "Tryber x aqui!"
+            Parâmetro: "Bebeto"
+            Retorno: "Tryber Bebeto aqui!"
+
+    - Crie um array com escopo global, que é o escopo do arquivo JS , nesse caso, contendo cinco strings com suas principais skills.
+
+    - Função 2 : Escreva uma função que vai receber a string retornada da Função 1 como parâmetro. Essa função deve concatenar as skills do array global à string que foi passada para a Função 2 via parâmetro. Você deve ordenar os skills em ordem alfabética. Sua função deve retornar essa nova string .
+        Exemplo:
+            "Tryber x aqui! Minhas cinco principais habilidades são:
+            JavaScript;
+            HTML; ... #goTrybe". */
+
+// Função 1
+const substituiString = parametro => 'Tryber x aqui!'.replace('x', parametro);
+console.log(substituiString('Bebeto'));
+
+// Array
+let arraySkills = ['HTML', 'CSS', 'JavaScript', 'Git/GitHub', 'Unix/Bash'];
+
+// Função 2
+const stringFinal = stringFuncao1 => {
+    arrayOrdenado = arraySkills.sort();
+    return `${stringFuncao1} Minhas cinco principais habilidades são:
+    ${arrayOrdenado[0]};
+    ${arrayOrdenado[1]};
+    ${arrayOrdenado[2]};
+    ${arrayOrdenado[3]};
+    ${arrayOrdenado[4]};
+    #goTrybe`;
+}
+console.log(stringFinal(substituiString('Bebeto')));
+
