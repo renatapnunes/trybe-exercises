@@ -1,4 +1,5 @@
 // --------------------------------------------- BLOCO 7 - DIA 1 - JavaScript ES6 ------------------------------------------
+// ------------------------------------------------------- Part I ----------------------------------------------------------
 
 /* Exercicio 1
 Faça as modificações necessárias na função para que o seu comportamento respeite o escopo no qual cada variável foi declarada.
