@@ -2,71 +2,192 @@
 
 // ----------------------------------------------------- Exercícios de Fixação ----------------------------------------------------------
 
-// --------------------------- spread operator
+/* Exercicio 1
+Dado o código abaixo, complete-o de forma que seja impressa a área dos 3 retângulos. O código deve retornar em sequência 2 , 15 e 54 .
+    - Dica: use spread operator. */
 
-// Faça uma lista com as suas frutas favoritas
-const specialFruit = ['morango', 'uva', 'banana'];
+const assert = require('assert');
 
-// Faça uma lista de complementos que você gostaria de adicionar
-const additionalItens = ['iogurte', 'granola', 'chantilly'];
+const rectangleArea = (width, height) => width * height;
 
-const fruitSalad = (fruit, additional) => [...fruit, ...additional];
+const rectangle1 = [1, 2];
+const rectangle2 = [3, 5];
+const rectangle3 = [6, 9];
+const rectangles = [rectangle1, rectangle2, rectangle3];
 
-console.log(fruitSalad(specialFruit, additionalItens));
+console.log();
 
-// --------------------------- array destructuring
+rectangles.forEach((rectangle) => {
+    assert.strictEqual(rectangleArea(...rectangle), rectangle[0] * rectangle[1]); // altere a chamada da funcao rectangleArea
+});
 
-// Exercicio 1
-const saudacoes = ['Olá', (saudacao) => console.log(saudacao)];
+/* Exercicio 2
+Crie uma função sum que dado um número variável de elementos retorna a soma desses elementos. Ou seja:
+    - Dica: use parâmetro rest. */
 
-saudacoes[1](saudacoes[0]); // Olá
+const assert = require('assert');
 
-// Produza o mesmo resultado acima, porém utilizando array destructuring
-const [saudacao, imprimeSaudacao] = saudacoes;
+const sum = (...arg) => arg.reduce(((acc, number) => acc + number), 0);
 
-imprimeSaudacao(saudacao);
+assert.strictEqual(sum(), 0);
+assert.strictEqual(sum(1), 1);
+assert.strictEqual(sum(1, 2), 3);
+assert.strictEqual(sum(1, 2, 3), 6);
+assert.strictEqual(sum(1, 2, 3, 4), 10);
 
-// Exercicio 2
-let comida = 'gato';
-let animal = 'água';
-let bebida = 'arroz';
+/* Exercicio 3
+Escreva a função personLikes, que dado um objeto de parâmetro que representa uma pessoa,
+retorna todos os gostos daquela pessoa, conforme mostrado abaixo:
+    - Dica: use object destructuring. */
 
-console.log(comida, animal, bebida); // arroz gato água
+const assert = require('assert');
 
-// Utilizando array destructuring, faça com que os valores apareçam nas variáveis correspondentes ao seu verdadeiro tipo
-let [pet, liquido, alimento] = [comida, animal, bebida];
-
-console.log(pet, liquido, alimento);
-
-// Exercicio 3
-let numerosPares = [1, 3, 5, 6, 8, 10, 12];
-
-//console.log(numerosPares); // [6, 8, 10, 12];
-
-// Utilize array destructuring para produzir o resultado esperado pelo console.log abaixo
-let [...numbers] = numerosPares.filter((number) => number % 2 === 0);
-console.log(numbers);
-
-
-// --------------------------- default destructuring
-
-const getNationality = ({ firstName, nationality = 'Brazilian'}) => `${firstName} is ${nationality}`;
-
-const person = {
-  firstName: 'João',
-  lastName: 'Jr II',
+const alex = {
+    name: 'Alex',
+    age: 26,
+    likes: ['fly fishing'],
+    nationality: 'Australian',
 };
 
-const otherPerson = {
-  firstName: 'Ivan',
-  lastName: 'Ivanovich',
-  nationality: 'Russian',
+const gunnar = {
+    name: 'Gunnar',
+    age: 30,
+    likes: ['hiking', 'scuba diving', 'taking pictures'],
+    nationality: 'Icelandic',
 };
 
-console.log(getNationality(otherPerson)); // Ivan is Russian
-console.log(getNationality(person));
+// complete a assinatura da função abaixo
+const personLikes = (person) => {
+    const {name, age, likes} = person;
+    return `${name} is ${age} years old and likes ${likes.join(', ')}.`;
+};
 
+assert.strictEqual(personLikes(alex), 'Alex is 26 years old and likes fly fishing.');
+assert.strictEqual(personLikes(gunnar), 'Gunnar is 30 years old and likes hiking, scuba diving, taking pictures.');
 
+/* Exercicio 4
+Escreva uma função filterPeople que, dada uma lista de pessoas, retorna todas as pessoas australianas que nasceram no século 20:
+    - Dica: use object destructuring. */
 
+const assert = require('assert');
 
+const people = [
+    {
+    name: 'Nicole',
+    bornIn: 1992,
+    nationality: 'Australian',
+    },
+    {
+    name: 'Harry',
+    bornIn: 2008,
+    nationality: 'Australian',
+    },
+    {
+    name: 'Toby',
+    bornIn: 1901,
+    nationality: 'Australian',
+    },
+    {
+    name: 'Frida',
+    bornIn: 1960,
+    nationality: 'Dannish',
+    },
+    {
+    name: 'Fernando',
+    bornIn: 2001,
+    nationality: 'Brazilian',
+    },
+];
+
+// escreva filterPeople abaixo
+const filterPeople = (people) => people.filter(({bornIn, nationality}) => {
+    return (bornIn >= 1901 && bornIn <= 2000) && (nationality === 'Australian');
+});
+
+const filteredPeople = filterPeople(people);
+
+assert.deepStrictEqual(filteredPeople[0], { name: 'Nicole', bornIn: 1992, nationality: 'Australian' });
+assert.deepStrictEqual(filteredPeople[1], { name: 'Toby', bornIn: 1901, nationality: 'Australian' });
+
+/* Exercicio 5
+ Escreva a função swap , que dado um array de 3 elementos, retorna um novo array com o primeiro e terceiro elementos trocados.
+ Detalhe: você precisa fazer essa função gastando 1 linha só:
+    Dica: use array destructuring. */
+
+const assert = require('assert');
+
+const myList = [1, 2, 3];
+
+const swap = ([primeiro, segundo, terceiro]) => [terceiro, segundo, primeiro];
+
+const swappedList = swap(myList);
+
+assert.strictEqual(swappedList[0], 3);
+assert.strictEqual(swappedList[1], 2);
+assert.strictEqual(swappedList[2], 1);
+
+/* Exercicio 6
+Suponha que você esteja lidando com carros e, da forma como o problema lhe foi entregue, cada carro é modelado como um array.
+Porém, essa modelagem está baixo nível. Cria uma função toObject que, dada uma lista, retorna um objeto representando o carro:
+   - Dica: use array destructuring e abbreviation object literal. */
+
+const assert = require('assert');
+
+const palio = ['Palio', 'Fiat', 2019];
+const shelbyCobra = ['Shelby Cobra', 'Ford', 1963];
+const chiron = ['Chiron', 'Bugatti', 2016];
+
+// escreva toObject abaixo
+const toObject = ([name, brand, year]) => ({ name, brand, year });
+
+assert.deepStrictEqual(toObject(palio), { name: 'Palio', brand: 'Fiat', year: 2019 });
+assert.deepStrictEqual(toObject(shelbyCobra), { name: 'Shelby Cobra', brand: 'Ford', year: 1963 });
+assert.deepStrictEqual(toObject(chiron), { name: 'Chiron', brand: 'Bugatti', year: 2016 });
+
+/* Exercicio 7
+Escreva uma função shipLength que, dado um objeto representando um navio, retorna o comprimento dele,
+mostrando também a devida unidade de comprimento:
+    - Dica: use object destructuring */
+
+const assert = require('assert');
+
+const ships = [
+    {
+    name: 'Titanic',
+    length: 269.1,
+    measurementUnit: 'meters',
+    },
+    {
+    name: 'Queen Mary 2',
+    length: 1132,
+    measurementUnit: 'feet',
+    },
+    {
+    name: 'Yamato',
+    length: 256,
+    measurementUnit: 'meters',
+    },
+];
+
+// escreva shipLength abaixo
+const shipLength = ({name, length, measurementUnit}) => `${name} is ${length} ${measurementUnit} long`;
+
+console.log(shipLength(ships[0]));
+
+assert.strictEqual(shipLength(ships[0]), 'Titanic is 269.1 meters long');
+assert.strictEqual(shipLength(ships[1]), 'Queen Mary 2 is 1132 feet long');
+assert.strictEqual(shipLength(ships[2]), 'Yamato is 256 meters long');
+
+/* Exercicio 8
+Escreva uma função greet que, dado o nome de uma pessoa, retorna uma mensagem de cumprimento:
+    - Dica: use default params. */
+
+const assert = require('assert');
+
+// escreva greet abaixo
+const greet = (name, msg = 'Hi') => `${msg} ${name}`;
+
+assert.strictEqual(greet('John'), 'Hi John');
+assert.strictEqual(greet('John', 'Good morning'), 'Good morning John');
+assert.strictEqual(greet('Isabela', 'Oi'), 'Oi Isabela');
 
