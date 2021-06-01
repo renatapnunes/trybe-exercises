@@ -1,140 +1,181 @@
 // ----------------------------- BLOCO 8 - DAY 4 - HOF: reduce() --------------------------------------------
 
+// ------------------------------------ Exercicios -----------------------------------------------------------
 
-/* Exercicios de fixação
-Para fixar ainda mais conceito de reduce , faça uma função que some todos os números pares do array:
-    - Tente criar uma usando reduce e filter , e outra apenas usando reduce. */
+/* Exercicio 1
+Dada uma matriz, transforme em um array. */
 
-// usando reduce() e filter()
-const numbers = [18, 19, 23, 53, 4, 5, 76, 23, 54];
+const assert = require('assert');
 
-const getSum = (result, evenNumber) => result + evenNumber;
-
-const evensNumbers = numbers.filter((number) => (number % 2 === 0));
-const sumEvens = evensNumbers.reduce(getSum);
-
-//outra forma de escrever o codigo:
-// const sumEvens = numbers
-//     .filter((number) => (number % 2 === 0))
-//     .reduce((result, evenNumber) => result + evenNumber);
-
-console.log(sumEvens);
-
-// usando somente reduce()
-const numbers2 = [18, 19, 23, 53, 4, 5, 76, 23, 54];
-
-const getSumEvens = (acc, crr) => {
-    if (crr % 2 === 0) {
-       return acc + crr;
-    }
-    return acc;
-};
-
-const sumEvens2 = numbers2.reduce(getSumEvens);
-
-console.log(sumEvens2);
-
-
-/* Exercicios de fixação
-Crie uma função usando os dados dos estudantes que usamos no conteúdo do dia anterior,
-para mostrar na tela um relatório que diz em qual matéria o estudante foi melhor.
-    - use o map() e dentro dele, o reduce() */
-
-const estudantes = [
-    {
-        nome: 'Jorge',
-        sobrenome: 'Silva',
-        idade: 14,
-        turno: 'Manhã',
-        materias: [
-        { name: 'Matemática', nota: 67 },
-        { name: 'Português', nota: 79 },
-        { name: 'Química', nota: 70 },
-        { name: 'Biologia', nota: 65 },
-        ],
-    },
-    {
-        nome: 'Mario',
-        sobrenome: 'Ferreira',
-        idade: 15,
-        turno: 'Tarde',
-        materias: [
-        { name: 'Matemática', nota: 59 },
-        { name: 'Português', nota: 80 },
-        { name: 'Química', nota: 78 },
-        { name: 'Biologia', nota: 92 },
-        ],
-    },
-    {
-        nome: 'Jorge',
-        sobrenome: 'Santos',
-        idade: 15,
-        turno: 'Manhã',
-        materias: [
-        { name: 'Matemática', nota: 76 },
-        { name: 'Português', nota: 90 },
-        { name: 'Química', nota: 70 },
-        { name: 'Biologia', nota: 80 },
-        ],
-    },
-    {
-        nome: 'Maria',
-        sobrenome: 'Silveira',
-        idade: 14,
-        turno: 'Manhã',
-        materias: [
-        { name: 'Matemática', nota: 91 },
-        { name: 'Português', nota: 85 },
-        { name: 'Química', nota: 92 },
-        { name: 'Biologia', nota: 90 },
-        ],
-    },
-    {
-        nome: 'Natalia',
-        sobrenome: 'Castro',
-        idade: 14,
-        turno: 'Manhã',
-        materias: [
-        { name: 'Matemática', nota: 70 },
-        { name: 'Português', nota: 70 },
-        { name: 'Química', nota: 60 },
-        { name: 'Biologia', nota: 50 },
-        ],
-    },
-    {
-        nome: 'Wilson',
-        sobrenome: 'Martins',
-        idade: 14,
-        turno: 'Manhã',
-        materias: [
-        { name: 'Matemática', nota: 80 },
-        { name: 'Português', nota: 82 },
-        { name: 'Química', nota: 79 },
-        { name: 'Biologia', nota: 75 },
-        ],
-    },
+const arrays = [
+  ['1', '2', '3'],
+  [true],
+  [4, 5, 6],
 ];
 
-const estudanteInfo = estudantes.map((estudante, index) => {
-    //estudante.materias[i].nota > estudante.materias[i+1].nota
-    const ordenado = estudante.materias.sort((a, b) => b.nota - a.nota);
-    return {
-        name: estudante.nome,
-        materia: ordenado[0]['name']
-    }
-});
-
-console.log(estudanteInfo);
-
-// solução da Trybe:
-const getBestClass = (acc, materia) => {
-    if (acc.nota > materia.nota) return acc;
-    return materia;
+function flatten() {
+  return arrays.reduce(((acc, crr) => acc.concat(crr)), []);
 };
-  
-const reportBetter = (students) => students.map((student) => ({
-    name: student.nome,
-    materia: student.materias.reduce(getBestClass).name
-}));
 
-console.log(reportBetter(estudantes));
+assert.deepStrictEqual(flatten(), ['1', '2', '3', true, 4, 5, 6]);
+
+
+// -----------------------------------------------------------------------------------------------------------
+// Para os exercícios 2, 3 e 4 considere o seguinte array:
+
+const assert = require('assert');
+
+const books = [
+  {
+    id: 1,
+    name: 'As Crônicas de Gelo e Fogo',
+    genre: 'Fantasia',
+    author: {
+      name: 'George R. R. Martin',
+      birthYear: 1948,
+    },
+    releaseYear: 1991,
+  },
+  {
+    id: 2,
+    name: 'O Senhor dos Anéis',
+    genre: 'Fantasia',
+    author: {
+      name: 'J. R. R. Tolkien',
+      birthYear: 1892,
+    },
+    releaseYear: 1954,
+  },
+  {
+    id: 3,
+    name: 'Fundação',
+    genre: 'Ficção Científica',
+    author: {
+      name: 'Isaac Asimov',
+      birthYear: 1920,
+    },
+    releaseYear: 1951,
+  },
+  {
+    id: 4,
+    name: 'Duna',
+    genre: 'Ficção Científica',
+    author: {
+      name: 'Frank Herbert',
+      birthYear: 1920,
+    },
+    releaseYear: 1965,
+  },
+  {
+    id: 5,
+    name: 'A Coisa',
+    genre: 'Terror',
+    author: {
+      name: 'Stephen King',
+      birthYear: 1947,
+    },
+    releaseYear: 1986,
+  },
+  {
+    id: 6,
+    name: 'O Chamado de Cthulhu',
+    genre: 'Terror',
+    author: {
+      name: 'H. P. Lovecraft',
+      birthYear: 1890,
+    },
+    releaseYear: 1928,
+  },
+];
+
+// Adicione o código do exercício aqui:
+
+/* Exercicio 2
+Crie uma string com os nomes de todas as pessoas autoras. */
+
+const expectedResult = "George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.";
+
+function reduceNames() {
+  return books.reduce((acc, crr, index, array) => {
+      return index === array.length - 1 ? `${acc} ${crr.author.name}.`: `${acc} ${crr.author.name},`;
+  }, '').trim();
+};
+
+assert.strictEqual(reduceNames(), expectedResult);
+
+/* Exercicio 3
+Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados. */
+
+const expectedResult2 = 43;
+
+function averageAge() {
+    const sum = books.reduce((acc, crr) => {
+        return acc + (crr.releaseYear - crr.author.birthYear);
+    }, 0);
+    return sum / books.length;
+}
+
+assert.strictEqual(averageAge(), expectedResult2);
+
+/* Exercicio 4
+Encontre o livro com o maior nome. */
+
+const expectedResult3 = 'As Crônicas de Gelo e Fogo';
+
+function longestNamedBook() {
+    const orderedBooks = books.sort((a, b) => b.name.length - a.name.length);
+    return orderedBooks[0].name;
+  }
+  
+  assert.deepStrictEqual(longestNamedBook(), expectedResult3);
+
+/* Exercicio 5
+Dada o array de nomes, retorne a quantidade de vezes em que aparecem a letra a maiúscula ou minúscula. */
+
+const assert = require('assert');
+
+const names = [
+  'Aanemarie', 'Adervandes', 'Akifusa',
+  'Abegildo', 'Adicellia', 'Aladonata',
+  'Abeladerco', 'Adieidy', 'Alarucha',
+];
+
+function containsA() {
+    return names.reduce((acc, crr) => {
+        const arrayWord = [...crr];
+        const amountA = arrayWord.reduce((acc2, crr2) => (crr2 === 'a' || crr2 === 'A') ? acc2 + 1 : acc2, 0);
+        return acc + amountA;
+    }, 0);
+};
+
+assert.deepStrictEqual(containsA(), 20);
+
+/* Exercicio 6
+Agora vamos criar um novo array de objetos a partir das informações abaixo,
+onde cada objeto terá o formato { name: nome do aluno, average: media das notas }.
+Para isso vamos assumir que a posição 0 de notas refere-se ao aluno na posição 0 de alunos,
+aqui além de reduce será necessário utilizar também a função map.
+    - Dica: Você pode acessar o index do array dentro de map, e você pode ver o objeto esperado na constante expected . */
+
+const assert = require('assert');
+
+const students = ['Pedro Henrique', 'Miguel', 'Maria Clara'];
+const grades = [[9, 8, 10, 7, 5], [10, 9, 9, 10, 8], [10, 7, 10, 8, 9]];
+
+function studentAverage() {
+    return grades.map((gradesStudent, index) => {
+        const grade = (gradesStudent.reduce((acc, crr) => acc + crr)) / 5;
+        return {
+            name: students[index],
+            average: grade
+        };
+    });
+};
+
+const expected = [
+    { name: 'Pedro Henrique', average: 7.8 },
+    { name: 'Miguel', average: 9.2 },
+    { name: 'Maria Clara', average: 8.8 },
+];
+
+assert.deepStrictEqual(studentAverage(), expected);
